@@ -15,7 +15,7 @@
         regexps: {
             format: /(\$)/
         },
-        format: function(value, format, roundingFunction) {
+        format: function(value, format, roundingFunction, currencySymbol) {
             var locale = numeral.locales[numeral.options.currentLocale],
                 symbols = {
                     before: format.match(/^([\+|\-|\(|\s|\$]*)/)[0],
@@ -39,16 +39,18 @@
                 symbols.before = '-' + symbols.before;
             }
 
+            var currentCurrencySymbol = currencySymbol !== undefined ? currencySymbol : locale.currency.symbol;
+
             // loop through each before symbol
             for (i = 0; i < symbols.before.length; i++) {
                 symbol = symbols.before[i];
 
                 switch (symbol) {
                     case '$':
-                        output = numeral._.insert(output, locale.currency.symbol, i);
+                        output = numeral._.insert(output, currentCurrencySymbol, i);
                         break;
                     case ' ':
-                        output = numeral._.insert(output, ' ', i + locale.currency.symbol.length - 1);
+                        output = numeral._.insert(output, ' ', i + currentCurrencySymbol.length - 1);
                         break;
                 }
             }
@@ -59,14 +61,13 @@
 
                 switch (symbol) {
                     case '$':
-                        output = i === symbols.after.length - 1 ? output + locale.currency.symbol : numeral._.insert(output, locale.currency.symbol, -(symbols.after.length - (1 + i)));
+                        output = i === symbols.after.length - 1 ? output +currentCurrencySymbol : numeral._.insert(output, currentCurrencySymbol, -(symbols.after.length - (1 + i)));
                         break;
                     case ' ':
-                        output = i === symbols.after.length - 1 ? output + ' ' : numeral._.insert(output, ' ', -(symbols.after.length - (1 + i) + locale.currency.symbol.length - 1));
+                        output = i === symbols.after.length - 1 ? output + ' ' : numeral._.insert(output, ' ', -(symbols.after.length - (1 + i) + currentCurrencySymbol.length - 1));
                         break;
                 }
             }
-
 
             return output;
         }
