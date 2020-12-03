@@ -102,7 +102,6 @@
     numeral._ = _ = {
         // formats numbers separators, decimals places, signs, abbreviations
         numberToFormat: function(value, format, roundingFunction) {
-            console.log(8);
             var locale = locales[numeral.options.currentLocale],
                 negP = false,
                 optDec = false,
