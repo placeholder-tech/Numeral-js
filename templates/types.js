@@ -7,7 +7,7 @@
 
 (function (global, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['numeral'], factory);
+        define(['@placeholder-tech/numeral-js'], factory);
     } else if (typeof module === 'object' && module.exports) {
         factory(require('./numeral'));
     } else {
