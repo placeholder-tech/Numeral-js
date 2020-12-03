@@ -96,7 +96,7 @@ interface Numeral {
     nullFormat(format: string): void;
     defaultFormat(format: string): void;
     clone(): Numeral;
-    format(inputString?: string, roundingFunction?: RoundingFunction): string;
+    format(inputString?: string, roundingFunction?: RoundingFunction, currencySymbol?: string): string;
     unformat(inputString: string): number;
     value(): number;
     valueOf(): number;
