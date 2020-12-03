@@ -12,7 +12,7 @@ describe('Currency', function() {
 
     it('should format to currency', function() {
         var tests = [
-                [0,'$0.00','€0.00'],
+                [0,'$0.00','$0.00'],
                 [null,'$0.00','$0.00'],
                 [0.99,'$0,0.00','$0.99'],
                 [1000.234,'$0,0.00','$1,000.23'],
@@ -43,7 +43,7 @@ describe('Currency', function() {
             i;
 
         for (i = 0; i < tests.length; i++) {
-            expect(numeral(tests[i][0]).format(tests[i][1],null, "€")).to.equal(tests[i][2]);
+            expect(numeral(tests[i][0]).format(tests[i][1])).to.equal(tests[i][2]);
         }
     });
 
