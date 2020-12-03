@@ -54,7 +54,8 @@
     "uglify-js": "latest"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "test:npm": "grunt test:npm"
   },
   "ender": "./ender.js",
   "_id": "numeral@1.5.4",
