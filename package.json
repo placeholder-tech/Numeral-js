@@ -3,11 +3,7 @@
   "version": "2.0.8",
   "description": "Format and manipulate numbers.",
   "homepage": "http://numeraljs.com",
-  "author": {
-    "name": "Adam Draper",
-    "email": "adamwdraper@gmail.com",
-    "url": "http://github.com/adamwdraper"
-  },
+  "author": "",
   "keywords": [
     "numeral",
     "number",
