@@ -34,4 +34,4 @@ jobs:
         run: grunt build
 
       - name: test
-        run: npm run test
+        run: npm run test:npm
